@@ -8,17 +8,17 @@ import static org.junit.Assert.assertTrue;
 /**
  * Unit test for simple TwoSum.
  */
-class TwoSumTest
+public class TwoSumTest
 {
     @Test(expected = IllegalArgumentException.class)
-    void testResultWithNoSolutionException()
+    public void testResultWithNoSolutionException()
     {
         int[] sums = new int[]{2,3,9};
         TwoSum.result(sums, 7);
     }
 
     @Test
-    void testResultWithResult()
+    public void testResultWithResult()
     {
         int[] sums = new int[]{2,3,4};
         TwoSum.result(sums, 6);

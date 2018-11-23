@@ -1,14 +1,14 @@
-package me.ronggenliu.Permutations;
+package me.ronggenliu.permutations;
 
-import static java.lang.System.*;
+import static java.lang.System.out;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -82,7 +82,7 @@ public class Solution {
     private String rightVal;
     private String equalVal;
     private int[] numbers;
-    private Set<Character> charSet;
+    private LinkedHashSet<Character> charSet;
 
     Formula(String formula) {
       this.formulaStr = formula;
@@ -92,20 +92,19 @@ public class Solution {
       rightVal = formula.substring(multipleInd + 1, equalInd).trim();
       equalVal = formula.substring(equalInd + 1).trim();
       numbers = IntStream.range(0, 10).toArray();
-      charSet = formula.replace("*", "")
-          .replace("=", "")
-          .replaceAll(" ", "").chars().mapToObj(e -> (char) e)
+      List<Character> characters = formula.replaceAll("[^a-z^A-Z]", "").chars().mapToObj(e -> (char) e)
           .collect
               (Collectors
-                  .toSet());
+                  .toList());
+      charSet = new LinkedHashSet<>(characters);
     }
 
     String matchFormula(List<Integer> permutation) {
-      int i = 0;
       String leftValTemp = leftVal;
       String rightValTemp = rightVal;
       String equalValTemp = equalVal;
       String formulaTemp = formulaStr;
+      int i = 0;
       for (Character character : charSet) {
         leftValTemp = leftValTemp.replaceAll(character + "", permutation.get(i) + "");
         rightValTemp = rightValTemp.replaceAll(character + "", permutation.get(i) + "");

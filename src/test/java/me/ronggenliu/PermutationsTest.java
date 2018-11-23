@@ -1,6 +1,6 @@
 package me.ronggenliu;
 
-import me.ronggenliu.Permutations.Permutations;
+import me.ronggenliu.permutations.Permutations;
 import org.junit.Test;
 
 import java.util.ArrayList;

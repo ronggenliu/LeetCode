@@ -1,4 +1,4 @@
-package me.ronggenliu.LongestPathInMatrix;
+package me.ronggenliu.longestpathinmatrix;
 
 /**
  * Created by Gary Liu on 2018/11/23.
@@ -8,5 +8,5 @@ public class Solution {
 
   }
 
-  
+
 }

@@ -1,4 +1,4 @@
-package me.ronggenliu.Permutations;
+package me.ronggenliu.permutations;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -18,7 +18,6 @@ import java.util.stream.IntStream;
 public class Solution {
   public static void main(String[] args) throws IOException {
     if (args.length < 1) {
-      out.println("please specify the path of the text file!");
       return;
     }
     String filePath = args[0];

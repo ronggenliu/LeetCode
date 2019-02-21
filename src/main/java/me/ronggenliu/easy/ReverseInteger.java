@@ -43,11 +43,29 @@ package me.ronggenliu.easy;
  * 
  */
 class ReverseInteger {
-    public static void main(String[] args) {
-        System.out.println("Hello");
-    }
     
     public int reverse(int x) {
-        return 0;
+        if (x < Integer.MIN_VALUE || x > Integer.MAX_VALUE) {
+            return 0;
+        }
+        char[] chars = (x + "").toCharArray();
+        int len = chars.length;
+        int start = 0;
+        if (x < 0) {
+            start = 1;
+        }
+        for (int i = start; i < start + len/2; i++) {
+            char startChar = chars[i];
+            char end = chars[len-1+start-i];
+            chars[i] = end;
+            chars[len-1+start-i] = startChar;
+        }
+        int ret = 0;
+        try {
+            ret = Integer.parseInt(new String(chars));
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return ret;
     }
 }

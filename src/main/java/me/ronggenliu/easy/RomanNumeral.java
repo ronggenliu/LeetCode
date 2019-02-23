@@ -83,29 +83,30 @@ import java.util.Map;
  * 
  */
 class RomanNumeral {
-    public int romanToInt(String s) {
-        char[] chars = s.toCharArray();
-        int ret = 0, pre = 0, cur = 0;
-        Map<String, Integer> romanNumeralMap = new HashMap<String, Integer>(7){
-            private static final long serialVersionUID = 1L;
-            {
-            put("M", 1000);
-            put("D", 500);
-            put("C", 100);
-            put("L", 50);
-            put("X", 10);
-            put("V", 5);
-            put("I", 1);
-        }};
-        for (int i = 0; i < chars.length; i++) {
-            cur = romanNumeralMap.get(new String(new char[] { chars[i] }));
-            if (pre != 0 && pre < cur) {
-                ret += (cur - 2 * pre);
-            } else {
-                ret += cur;
-            }
-            pre = cur;
-        }
-        return ret;
+  public int romanToInt(String s) {
+    char[] chars = s.toCharArray();
+    int ret = 0, pre = 0, cur = 0;
+    Map<String, Integer> romanNumeralMap = new HashMap<String, Integer>(7) {
+      private static final long serialVersionUID = 1L;
+      {
+        put("M", 1000);
+        put("D", 500);
+        put("C", 100);
+        put("L", 50);
+        put("X", 10);
+        put("V", 5);
+        put("I", 1);
+      }
+    };
+    for (int i = 0; i < chars.length; i++) {
+      cur = romanNumeralMap.get(new String(new char[] { chars[i] }));
+      if (pre != 0 && pre < cur) {
+        ret += (cur - 2 * pre);
+      } else {
+        ret += cur;
+      }
+      pre = cur;
     }
+    return ret;
+  }
 }

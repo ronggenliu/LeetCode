@@ -1,20 +1,37 @@
 package me.ronggenliu.easy;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameter;
+import org.junit.runners.Parameterized.Parameters;
 
 import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 
 import org.junit.Before;
 
 /**
  * Unit test for simple PalindromeNumber.
  */
-public class LongestCommonPrefixTest {
-  private LongestCommonPrefix longestCommonPrefix = null;
+@RunWith(Parameterized.class)
+ public class LongestCommonPrefixTest {
+  public LongestCommonPrefix longestCommonPrefix;
 
-  @Before
-  public void setup() {
-    longestCommonPrefix = new LongestCommonPrefix();
+  public LongestCommonPrefixTest(LongestCommonPrefix lCommonPrefix) {
+    this.longestCommonPrefix = lCommonPrefix;
+  }
+
+  @Parameters
+  public static Collection<Object[]> classes() {
+    return Arrays.asList(new Object[][] {
+      { new LongestCommonPrefixImpl1() },
+      { new LongestCommonPrefixImpl2() }
+    });
   }
 
   @Test

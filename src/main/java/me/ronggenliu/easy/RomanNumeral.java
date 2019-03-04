@@ -82,10 +82,13 @@ import java.util.Map;
  * Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
  * 
  */
+
 class RomanNumeral {
   public int romanToInt(String s) {
     char[] chars = s.toCharArray();
-    int ret = 0, pre = 0, cur = 0;
+    int ret = 0;
+    int pre = 0;
+    int cur = 0;
     Map<String, Integer> romanNumeralMap = new HashMap<String, Integer>(7) {
       private static final long serialVersionUID = 1L;
       {

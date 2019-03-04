@@ -1,4 +1,5 @@
 package me.ronggenliu.easy;
+
 /*
  * @lc app=leetcode id=7 lang=java
  *
@@ -42,44 +43,45 @@ package me.ronggenliu.easy;
  * overflows.
  * 
  */
-class ReverseInteger {
-    
-    public int reverse(int x) {
-        // if (x < Integer.MIN_VALUE || x > Integer.MAX_VALUE) {
-        //     return 0;
-        // }
-        // char[] chars = (x + "").toCharArray();
-        // int len = chars.length;
-        // int start = 0;
-        // if (x < 0) {
-        //     start = 1;
-        // }
-        // for (int i = start; i < start + len/2; i++) {
-        //     char startChar = chars[i];
-        //     char end = chars[len-1+start-i];
-        //     chars[i] = end;
-        //     chars[len-1+start-i] = startChar;
-        // }
-        // int ret = 0;
-        // try {
-        //     ret = Integer.parseInt(new String(chars));
-        // } catch (NumberFormatException e) {
-        //     e.printStackTrace();
-        // }
-        // return ret;
 
-        int ret = 0;
-        while (x != 0) {
-            int tail = x % 10;
-            x /= 10;
-            if ((ret > Integer.MAX_VALUE / 10) || (ret == Integer.MAX_VALUE / 10 && tail > 7)) {
-                return 0;
-            }
-            if ((ret < Integer.MIN_VALUE / 10) || (ret == Integer.MIN_VALUE / 10 && tail < -8)) {
-                return 0;
-            }
-            ret = ret * 10 + tail;
-        }
-        return ret;
+class ReverseInteger {
+
+  public int reverse(int x) {
+    // if (x < Integer.MIN_VALUE || x > Integer.MAX_VALUE) {
+    // return 0;
+    // }
+    // char[] chars = (x + "").toCharArray();
+    // int len = chars.length;
+    // int start = 0;
+    // if (x < 0) {
+    // start = 1;
+    // }
+    // for (int i = start; i < start + len/2; i++) {
+    // char startChar = chars[i];
+    // char end = chars[len-1+start-i];
+    // chars[i] = end;
+    // chars[len-1+start-i] = startChar;
+    // }
+    // int ret = 0;
+    // try {
+    // ret = Integer.parseInt(new String(chars));
+    // } catch (NumberFormatException e) {
+    // e.printStackTrace();
+    // }
+    // return ret;
+
+    int ret = 0;
+    while (x != 0) {
+      int tail = x % 10;
+      x /= 10;
+      if ((ret > Integer.MAX_VALUE / 10) || (ret == Integer.MAX_VALUE / 10 && tail > 7)) {
+        return 0;
+      }
+      if ((ret < Integer.MIN_VALUE / 10) || (ret == Integer.MIN_VALUE / 10 && tail < -8)) {
+        return 0;
+      }
+      ret = ret * 10 + tail;
     }
+    return ret;
+  }
 }

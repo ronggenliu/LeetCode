@@ -37,6 +37,7 @@ package me.ronggenliu.easy;
  * All given inputs are in lowercase letters a-z.
  *
  */
+
 class LongestCommonPrefix {
   public String longestCommonPrefix(String[] strs) {
     // char c;

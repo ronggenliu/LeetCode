@@ -46,19 +46,20 @@ package me.ronggenliu.easy;
  * Coud you solve it without converting the integer to a string?
  * 
  */
-class PalindromeNumber {
-    public boolean isPalindrome(int x) {
-        return (x < 0 || (x % 10 == 0 && x != 0)) ? false : halfReverseInteger(x);
-    }
 
-    private boolean halfReverseInteger(int x) {
-        int ret = 0;
-        // only need to reverse half of the interger.
-        while (x > ret) {
-            int tail = x % 10;
-            x /= 10;
-            ret = ret * 10 + tail;
-        }
-        return x == ret || x == ret / 10;
+class PalindromeNumber {
+  public boolean isPalindrome(int x) {
+    return (x < 0 || (x % 10 == 0 && x != 0)) ? false : halfReverseInteger(x);
+  }
+
+  private boolean halfReverseInteger(int x) {
+    int ret = 0;
+    // only need to reverse half of the interger.
+    while (x > ret) {
+      int tail = x % 10;
+      x /= 10;
+      ret = ret * 10 + tail;
     }
+    return x == ret || x == ret / 10;
+  }
 }

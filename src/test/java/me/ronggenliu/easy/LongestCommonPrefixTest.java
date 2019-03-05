@@ -25,9 +25,10 @@ public class LongestCommonPrefixTest {
   @Parameters(name = "{index}: test for impl {1}")
   public static Collection<Object[]> data() {
     return Arrays.asList(new Object[][]{
-        {new LongestCommonPrefixImpl1(), "Vertical Scanning solution"},
-        {new LongestCommonPrefixImpl2(), "Horizontal Scanning solution"},
-        {new LongestCommonPrefixImpl3(), "Divide Conquer solution"}
+            {new LongestCommonPrefixImpl1(), "Vertical Scanning solution"},
+            {new LongestCommonPrefixImpl2(), "Horizontal Scanning solution"},
+            {new LongestCommonPrefixImpl3(), "Divide Conquer solution"},
+            {new LongestCommonPrefixImpl4(), "Binary Search solution"}
     });
   }
 

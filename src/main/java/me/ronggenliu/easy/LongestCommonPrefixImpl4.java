@@ -7,21 +7,33 @@ public class LongestCommonPrefixImpl4 implements LongestCommonPrefix {
   @Override
   public String longestCommonPrefix(String[] strs) {
     if (strs == null || strs.length == 0) return "";
-    int mid = strs[0].length() / 2;
-    return binarySearch(strs, mid);
+    int min = Integer.MAX_VALUE;
+    for (String str : strs) {
+      min = Math.min(min, str.length());
+    }
+    return binarySearch(strs, 1, min);
   }
 
-  private String binarySearch(String[] strs, int mid) {
-    String left = strs[0].substring(0, mid);
-    if (mid == strs[0].length()) {
-      return left;
-    }
-    String right = strs[0].substring(mid);
-    for (int i = 0; i < strs.length; i++) {
-      if (!strs[0].startsWith(left)) {
-        return left;
+  private String binarySearch(String[] strs, int l, int r) {
+    int mid;
+    while (l <= r) {
+      mid = (l + r) / 2;
+      if (isCommonPrefix(strs, mid)) {
+        l = mid + 1;
+      } else {
+        r = mid - 1;
       }
     }
-    return binarySearch(strs, mid + right.length() / 2);
+    return strs[0].substring(0, (l + r) / 2);
+  }
+
+  private boolean isCommonPrefix(String[] strs, int mid) {
+    String tmp = strs[0].substring(0, mid);
+    for (int i = 1; i < strs.length; i++) {
+      if (!strs[i].startsWith(tmp)) {
+        return false;
+      }
+    }
+    return true;
   }
 }

@@ -6,6 +6,7 @@ package me.ronggenliu.easy;
  * Divide and Conquer LCP(S1...Sn) = LCP(LCP(S1...Sk), LCP(Sk+1...Sn))
  */
 public class LongestCommonPrefixImpl3 implements LongestCommonPrefix {
+  // LCP
   @Override
   public String longestCommonPrefix(String[] strs) {
     if (strs == null || strs.length == 0) {
@@ -13,7 +14,7 @@ public class LongestCommonPrefixImpl3 implements LongestCommonPrefix {
     }
     return longestCommonPrefix(strs, 0, strs.length - 1);
   }
-
+  // LCP(left, right)
   private String longestCommonPrefix(String[] strs, int l, int r) {
     if (l == r) {
       return strs[l];
@@ -25,6 +26,7 @@ public class LongestCommonPrefixImpl3 implements LongestCommonPrefix {
     }
   }
 
+  // LCP(left string, right string)
   private String commonPrefix(String lcpLeft, String lcpRight) {
     int min = Math.min(lcpLeft.length(), lcpRight.length());
     for (int i = 0; i < min; i++) {
